@@ -2,6 +2,7 @@ import discord
 import json
 import requests
 import os
+import functions
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -19,6 +20,8 @@ async def on_message(message):
     if message.content.startswith("$hello"):
         await message.channel.send("Hello!")
 
+    if message.content.startswith("$quote of the day"):
+        quote = functions.quote_of_the_day()
+        await message.channel.send(quote)
 
-
-client.run("MTEzMzU3MDk3MTQzMzk2MzYyMQ.Grn8G3.2AiimsgTMzbLzqJiTjsNdTpAuYEMPs_HR9LfoI")
+client.run("")
